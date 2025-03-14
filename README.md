@@ -1,4 +1,4 @@
-# SpaceX GraphQL Wrapper
+# GitHub GraphQL Wrapper
 
 A GraphQL wrapper around the GitHub GraphQL API, designed for use with APIsec testing.
 
@@ -21,7 +21,7 @@ githubdata/
 │   ├── resolvers/
 │   │   └── launch_resolver.py (resolvers that call the REST API)
 │   └── services/
-│       └── spacex_api.py (handles REST API calls to api.githubdata.com)
+│       └── github_api.py (handles REST API calls to api.githubdata.com)
 └── scripts/
     └── generate_sdl.py (generates schema for APIsec)  
 ```
@@ -150,12 +150,11 @@ asdf set -u uv 0.6.6
 
 in local
 git init
-git add . && git commit -m "Initial commit: SpaceX GraphQL API project setup"
 created empty repo at: https://github.com/kjon-life/apisec-graphql-github
 git remote add origin https://github.com/kjon-life/apisec-graphql-github.git && git branch -M main && git push -u origin main
 
 we can also update the remote to use ssh
-git remote set-url origin git@github.com:kjon-life/apisec-graphql-qa.git && git branch -M main && git push -u origin main
+git remote set-url origin git@github.com:kjon-life/apisec-graphql-github.git && git branch -M main && git push -u origin main
 
 so we have an environment on EC2
 [ec2-user@ip-172-31-29-43 asdf]$ uv --version
@@ -166,7 +165,7 @@ Python 3.11.11
 v23.9.0
 
 and the git repo to clone
-git@github.com:kjon-life/apisec-graphql-qa.git
+git@github.com:kjon-life/apisec-graphql-github.git
 
 ./scripts/deploy.sh
 writes to the app directory to ~/apps/githubdata
@@ -284,15 +283,7 @@ The application can be monitored through:
 
 # Appendix
 
-### The Official SpaceX API is mnow primarily REST 
-So we create a simple GraphQL server that wraps the SpaceX REST API
-Generate the introspection schema and an SDL from our wrapper
-Use the SDL file to register the application in APIsec
-
 ### Getting started
-```bash
-curl -X POST https://api.githubdata.com/v4/graphql -H "Content-Type: application/json" -d '{"query": "query { __schema { queryType { name } mutationType { name } subscriptionType { name } types { ...FullType } directives { name description locations args { ...InputValue } } } } fragment FullType on __Type { kind name description fields(includeDeprecated: true) { name description args { ...InputValue } type { ...TypeRef } isDeprecated deprecationReason } inputFields { ...InputValue } interfaces { ...TypeRef } enumValues(includeDeprecated: true) { name description isDeprecated deprecationReason } possibleTypes { ...TypeRef } } fragment InputValue on __InputValue { name description type { ...TypeRef } defaultValue } fragment TypeRef on __Type { kind name ofType { kind name ofType { kind name ofType { kind name ofType { kind name ofType { kind name ofType { kind name } } } } } } }"}' | python3 -m json.tool > spacex_schema.json
-```
 
 
 
@@ -354,12 +345,11 @@ asdf set -u uv 0.6.6
 
 in local
 git init
-git add . && git commit -m "Initial commit: SpaceX GraphQL API project setup"
-created empty repo at: https://github.com/kjon-life/apisec-graphql-qa
-git remote add origin https://github.com/kjon-life/apisec-graphql-qa.git && git branch -M main && git push -u origin main
+created empty repo at: https://github.com/kjon-life/apisec-graphql-github
+git remote add origin https://github.com/kjon-life/apisec-graphql-github.git && git branch -M main && git push -u origin main
 
 we can also update the remote to use ssh
-git remote set-url origin git@github.com:kjon-life/apisec-graphql-qa.git && git branch -M main && git push -u origin main
+git remote set-url origin git@github.com:kjon-life/apisec-graphql-github.git && git branch -M main && git push -u origin main
 
 so we have an environment on EC2
 [ec2-user@ip-172-31-29-43 asdf]$ uv --version
@@ -370,7 +360,7 @@ Python 3.11.11
 v23.9.0
 
 and the git repo to clone
-git@github.com:kjon-life/apisec-graphql-qa.git
+git@github.com:kjon-life/apisec-graphql-github.git
 
 ./scripts/deploy.sh
 writes to the app directory to ~/apps/githubdata
@@ -432,7 +422,7 @@ Type: Custom TCP
 Protocol: TCP
 Port range: 9070
 Source: Anywhere (0.0.0.0/0) for public access or your specific IP
-Description: SpaceXdata
+Description: GitHubdata
 
 ```bash
 http://54.234.103.190:9070/graphql
@@ -442,7 +432,7 @@ now we go to NG
 https://cst.dev.apisecapps.com/
 jon+dev@apisec.ai (CST DEV in pwSafe)
 
-Add the application `SpaceXdata` with Host URL:
+Add the application `GitHubdata` with Host URL:
 ```
 http://54.234.103.190:9070/
 ```

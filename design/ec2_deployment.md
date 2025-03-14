@@ -81,6 +81,9 @@ Required ports:
 - ⬜ 443 (HTTPS) - Pending SSL setup
 - ⬜ 9072 (Application)
 
+### 7. GitHub GraphQL Authentication
+[Authenticate](https://docs.github.com/en/graphql/guides/forming-calls-with-graphql) to the GraphQL API using a personal access token, GitHub App, or OAuth app
+
 ## Implementation Plan
 
 ### Phase 1: Initial Setup and Validation ⬜
