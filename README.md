@@ -1,6 +1,6 @@
 # GitHub GraphQL Wrapper
 
-A GraphQL wrapper around the GitHub GraphQL API, designed for use with APIsec testing.
+A delightful GraphQL wrapper around the GitHub GraphQL API, designed for use with APIsec testing.
 
 When we run our server with `uv run uvicorn githubdata.main:app --reload`, it creates an endpoint we can queru with APIsec NG.
 
@@ -442,4 +442,4 @@ image.png
 - GitHub GraphQL API
 - APIsec NG
 - EC2
-- Made with ❤️ kjon-life ©2025
+- made with ❤️ kjon-life ©2025
