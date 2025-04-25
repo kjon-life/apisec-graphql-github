@@ -442,3 +442,4 @@ image.png
 - GitHub GraphQL API
 - APIsec NG
 - EC2
+- Made with ❤️ kjon-life ©2025
