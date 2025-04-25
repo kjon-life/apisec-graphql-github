@@ -4,13 +4,13 @@ A GraphQL wrapper around the GitHub GraphQL API, designed for use with APIsec te
 
 When we run our server with `uv run uvicorn githubdata.main:app --reload`, it creates an endpoint we can queru with APIsec NG.
 
-We are using the  
+We are using the
 We have created a GraphQL wrapper around it to:
   * Make it compatible for testing GraphQL with APIsec
   * Expose a GraphQL interface to their REST API
   * Generate SDL for current testing, and JSON introspection for future testing in APIsec
 
-## Project Structure  
+## Project Structure
 ```bash
 githubdata/
 ├── githubdata/
@@ -23,7 +23,7 @@ githubdata/
 │   └── services/
 │       └── github_api.py (handles REST API calls to api.githubdata.com)
 └── scripts/
-    └── generate_sdl.py (generates schema for APIsec)  
+    └── generate_sdl.py (generates schema for APIsec)
 ```
 
 ## Setup
@@ -70,7 +70,7 @@ Note:  To generate just the SDL for APIsec:
 uv run python scripts/generate_sdl.py
 ```
 
-## EC2 Deployment  
+## EC2 Deployment
 Based on the [list of common TCP and UDP port numbers](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) we chose 9070-9079 to deploy APIs on EC2.
 
 ### IAM User
@@ -122,7 +122,7 @@ sudo yum groupinstall "Development Tools"
   186  asdf
   187  asdf --version
 
-but then python buiild fails 
+but then python buiild fails
 itried
 sudo yum install -y gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel xz-devel
 
@@ -174,7 +174,7 @@ Uses $USER instead of hardcoded ec2-user
 We sudo for commands that require root access
 Updated domain to githubdata.kjon.life
 
-copy my key to the server 
+copy my key to the server
 scp my deploy.sh to the server
 chmod +x on deploy.sh
 
@@ -208,7 +208,7 @@ so I can configure this with DNS
 http://githubdata.kjon.life
 http://githubdata.kjon.life:9070
 
-but for now we will 
+but for now we will
 http://54.234.103.190:9070
 http://54.234.103.190
 
@@ -218,7 +218,7 @@ curl http://54.234.108.190/latest/meta-data/instance-id
 
 In the EC2 console, select the running instance
 `sg-0c8ce9629b0959a93 - launch-wizard-2`
-In the "Security" tab, click on the security group link 
+In the "Security" tab, click on the security group link
 Click "Edit inbound rules"
 Click "Add rule"
 Set the following values:
@@ -317,7 +317,7 @@ sudo yum groupinstall "Development Tools"
   186  asdf
   187  asdf --version
 
-but then python buiild fails 
+but then python buiild fails
 itried
 sudo yum install -y gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel xz-devel
 
@@ -369,7 +369,7 @@ Uses $USER instead of hardcoded ec2-user
 We sudo for commands that require root access
 Updated domain to githubdata.kjon.life
 
-copy my key to the server 
+copy my key to the server
 scp my deploy.sh to the server
 chmod +x on deploy.sh
 
@@ -403,7 +403,7 @@ so I can configure this with DNS
 http://githubdata.kjon.life
 http://githubdata.kjon.life:9070
 
-but for now we will 
+but for now we will
 http://54.234.103.190:9070
 http://54.234.103.190
 
@@ -413,7 +413,7 @@ curl http://54.234.108.190/latest/meta-data/instance-id
 
 In the EC2 console, select the running instance
 `sg-0c8ce9629b0959a93 - launch-wizard-2`
-In the "Security" tab, click on the security group link 
+In the "Security" tab, click on the security group link
 Click "Edit inbound rules"
 Click "Add rule"
 Set the following values:
@@ -437,3 +437,8 @@ Add the application `GitHubdata` with Host URL:
 http://54.234.103.190:9070/
 ```
 image.png
+
+# Credits
+- GitHub GraphQL API
+- APIsec NG
+- EC2
